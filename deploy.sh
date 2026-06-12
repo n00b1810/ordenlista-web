@@ -33,6 +33,22 @@ if [ "$MODE" = "produccion" ]; then
         rsync -av --delete --exclude='.git/' --exclude='.github/' \"\$REPO_DIR/\" \"$WEB_ROOT/\"
         chown -R www-data:www-data \"$WEB_ROOT\" 2>/dev/null || true
     "
+    # Ping IndexNow
+    log "Notificando a IndexNow..."
+    IDX_KEY="ordenlista-indexnow-key"
+    curl -s -X POST "https://api.indexnow.org/indexnow" \
+        -H "Content-Type: application/json; charset=utf-8" \
+        -d "{
+            \"host\": \"ordenlista.com\",
+            \"key\": \"$IDX_KEY\",
+            \"keyLocation\": \"https://ordenlista.com/idx-key.txt\",
+            \"urlList\": [
+                \"https://ordenlista.com/\",
+                \"https://ordenlista.com/blog/\",
+                \"https://ordenlista.com/blog/sistema-pos-para-restaurantes-guia-completa.html\"
+            ]
+        }" > /dev/null 2>&1
+    ok "IndexNow notificado"
     ok "Despliegue completado"
 elif [ "$MODE" = "local" ]; then
     log "Preparando para deploy local (abcti-server-1)..."
