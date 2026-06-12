@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>OrdenLista — Sistema POS y Punto de Venta para Restaurantes y Negocios</title>
+  <meta name="description" content="OrdenLista: software POS para restaurantes y negocios. Comandas digitales, pantalla de cocina, punto de venta, control de inventario y más. Todo en un solo sistema.">
+  <meta name="keywords" content="ordenlista, pos restaurante, punto de venta, sistema para restaurantes, comandas digitales, pos mexico, software para restaurantes, venta mostrador, inventario, ticket impresora">
+  <meta name="author" content="OrdenLista — by ABCTI">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="geo.region" content="MX-NLE">
+  <meta name="geo.placename" content="Ciénega de Flores">
+  <meta name="theme-color" content="#FF5722">
+  <meta name="application-name" content="OrdenLista">
+  <link rel="canonical" href="https://ordenlista.com">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="OrdenLista — POS inteligente para Restaurantes y Negocios">
+  <meta property="og:description" content="Sistema POS moderno: comandas digitales, punto de venta, cocina, inventario y más. Para restaurantes, cafeterías, tiendas y negocios en México.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ordenlista.com">
+  <meta property="og:image" content="https://ordenlista.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="OrdenLista">
+  <meta property="og:locale" content="es_MX">
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@ordenlista">
+  <meta name="twitter:title" content="OrdenLista — POS inteligente">
+  <meta name="twitter:description" content="Sistema POS para restaurantes y negocios: comandas, cocina, inventario y ventas.">
+  
+  <!-- Schema.org Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "OrdenLista",
+    "url": "https://ordenlista.com",
+    "description": "Sistema de punto de venta y gestión para restaurantes y negocios en México",
+    "foundingDate": "2023",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ciénega de Flores",
+      "addressRegion": "Nuevo León",
+      "addressCountry": "MX"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+52-81-3038-0363",
+      "contactType": "sales",
+      "availableLanguage": "Spanish"
+    }
+  }
+  </script>
+  
+  <!-- Schema.org WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "OrdenLista",
+    "url": "https://ordenlista.com",
+    "description": "Sistema POS para restaurantes y negocios",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://ordenlista.com/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --ol-primary: #FF5722;
+      --ol-primary-dark: #E64A19;
+      --ol-primary-light: #FF8A65;
+      --ol-dark: #1a1a2e;
+      --ol-dark-secondary: #2D3436;
+      --ol-accent: #00B894;
+      --ol-accent-light: #55EFC4;
+      --ol-gray: #6c757d;
+      --ol-gray-light: #F8F9FA;
+      --ol-gradient: linear-gradient(135deg, #FF5722, #FF8A65);
+      --ol-gradient-reverse: linear-gradient(135deg, #FF8A65, #FF5722);
+      --ol-gradient-dark: linear-gradient(135deg, #1a1a2e, #2D3436);
+      --ol-shadow: 0 10px 40px rgba(255, 87, 34, 0.15);
+      --ol-shadow-sm: 0 4px 15px rgba(0,0,0,0.08);
+      --ol-radius: 20px;
+      --ol-radius-sm: 12px;
+    }
+
+    * { box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--ol-dark-secondary);
+      background: #ffffff;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    }
+
+    /* Navigation */
+    .navbar-ordenlista {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding: 0.75rem 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+    }
+    .navbar-ordenlista .navbar-brand {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--ol-primary);
+      letter-spacing: -0.5px;
+    }
+    .navbar-ordenlista .navbar-brand i {
+      margin-right: 8px;
+    }
+    .navbar-ordenlista .nav-link {
+      font-weight: 500;
+      color: var(--ol-dark-secondary) !important;
+      padding: 0.5rem 1rem !important;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .navbar-ordenlista .nav-link:hover {
+      color: var(--ol-primary) !important;
+      background: rgba(255, 87, 34, 0.06);
+    }
+    .navbar-ordenlista .btn-ordenlista {
+      background: var(--ol-gradient);
+      color: white !important;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    .navbar-ordenlista .btn-ordenlista:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(255, 87, 34, 0.3);
+      background: var(--ol-gradient);
+    }
+
+    /* Hero Section */
+    .hero-ordenlista {
+      padding: 120px 0 80px;
+      background: linear-gradient(135deg, #FFF5F2 0%, #FFFFFF 50%, #F0FFFB 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-ordenlista::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 87, 34, 0.06), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-ordenlista::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0, 184, 148, 0.05), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 87, 34, 0.1);
+      color: var(--ol-primary);
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255, 87, 34, 0.15);
+    }
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--ol-dark);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title .highlight {
+      background: linear-gradient(135deg, #FF5722, #FF8A65);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--ol-gray);
+      line-height: 1.7;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-ordenlista-primary {
+      background: var(--ol-gradient);
+      color: white;
+      border: none;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(255, 87, 34, 0.25);
+    }
+    .btn-ordenlista-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(255, 87, 34, 0.35);
+      color: white;
+    }
+    .btn-ordenlista-secondary {
+      background: white;
+      color: var(--ol-dark-secondary);
+      border: 2px solid #e9ecef;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+    .btn-ordenlista-secondary:hover {
+      border-color: var(--ol-primary);
+      color: var(--ol-primary);
+      transform: translateY(-3px);
+    }
+
+    /* Products Showcase */
+    .products-section {
+      padding: 100px 0;
+      background: white;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ol-gray-light);
+      color: var(--ol-gray);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--ol-dark);
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--ol-gray);
+      max-width: 650px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+    .product-card {
+      background: white;
+      border-radius: var(--ol-radius);
+      padding: 2.5rem;
+      height: 100%;
+      border: 2px solid #f0f0f0;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card:hover {
+      border-color: var(--ol-primary);
+      box-shadow: var(--ol-shadow);
+      transform: translateY(-5px);
+    }
+    .product-card.restaurant-card {
+      border-top: 4px solid var(--ol-primary);
+    }
+    .product-card.pos-card {
+      border-top: 4px solid var(--ol-accent);
+    }
+    .product-card .product-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+    .product-card.restaurant-card .product-icon {
+      background: rgba(255, 87, 34, 0.1);
+      color: var(--ol-primary);
+    }
+    .product-card.pos-card .product-icon {
+      background: rgba(0, 184, 148, 0.1);
+      color: var(--ol-accent);
+    }
+    .product-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+    .product-card .product-desc {
+      color: var(--ol-gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .product-card .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+    }
+    .product-card .feature-list li {
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+      color: var(--ol-dark-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .product-card .feature-list li:last-child {
+      border-bottom: none;
+    }
+    .product-card .feature-list li i {
+      color: var(--ol-accent);
+      margin-top: 3px;
+      font-size: 0.8rem;
+    }
+    .product-card .btn-product {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      padding: 10px 0;
+    }
+    .product-card.restaurant-card .btn-product {
+      color: var(--ol-primary);
+    }
+    .product-card.restaurant-card .btn-product:hover {
+      color: var(--ol-primary-dark);
+      gap: 12px;
+    }
+    .product-card.pos-card .btn-product {
+      color: var(--ol-accent);
+    }
+    .product-card.pos-card .btn-product:hover {
+      color: #00A381;
+      gap: 12px;
+    }
+    .product-card .product-badge {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+    .product-card.restaurant-card .product-badge {
+      background: rgba(255, 87, 34, 0.1);
+      color: var(--ol-primary);
+    }
+    .product-card.pos-card .product-badge {
+      background: rgba(0, 184, 148, 0.1);
+      color: var(--ol-accent);
+    }
+
+    /* Features */
+    .features-section {
+      padding: 100px 0;
+      background: var(--ol-gray-light);
+    }
+    .feature-item {
+      padding: 2rem;
+      background: white;
+      border-radius: var(--ol-radius-sm);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    .feature-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+    .feature-item .fi-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, rgba(255, 87, 34, 0.1), rgba(255, 138, 101, 0.1));
+      color: var(--ol-primary);
+    }
+    .feature-item h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .feature-item p {
+      font-size: 0.9rem;
+      color: var(--ol-gray);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Why Section */
+    .why-section {
+      padding: 100px 0;
+      background: var(--ol-gradient-dark);
+      color: white;
+    }
+    .why-section .section-title { color: white; }
+    .why-section .section-subtitle { color: rgba(255,255,255,0.7); }
+    .why-section .section-label { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
+    .why-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--ol-radius);
+      padding: 2rem;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+    .why-card:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-3px);
+    }
+    .why-card .wc-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      background: rgba(255, 87, 34, 0.2);
+      color: var(--ol-primary-light);
+    }
+    .why-card h5 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .why-card p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #FF5722, #FF8A65);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .cta-section p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+    .cta-section .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      color: var(--ol-primary);
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+    .cta-section .btn-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+      color: var(--ol-primary-dark);
+    }
+
+    /* Footer */
+    .footer-ordenlista {
+      background: var(--ol-dark);
+      color: rgba(255,255,255,0.7);
+      padding: 60px 0 30px;
+    }
+    .footer-ordenlista h5 {
+      color: white;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+    .footer-ordenlista a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-ordenlista a:hover {
+      color: var(--ol-primary-light);
+    }
+    .footer-ordenlista .footer-brand {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+    .footer-ordenlista .footer-brand span {
+      color: var(--ol-primary);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.5rem;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-title { font-size: 2.5rem; }
+      .section-title { font-size: 2rem; }
+      .hero-ordenlista { padding: 100px 0 60px; }
+    }
+    @media (max-width: 768px) {
+      .hero-title { font-size: 2rem; }
+      .section-title { font-size: 1.6rem; }
+      .products-section, .features-section, .why-section { padding: 60px 0; }
+      .cta-section h2 { font-size: 1.8rem; }
+      .product-card { padding: 1.5rem; }
+      .hero-cta { flex-direction: column; }
+      .btn-ordenlista-primary, .btn-ordenlista-secondary { width: 100%; justify-content: center; }
+    }
+
+    /* Floating WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      width: 56px;
+      height: 56px;
+      bottom: 24px;
+      right: 24px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 1.6rem;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .whatsapp-float:hover {
+      background: #128C7E;
+      transform: scale(1.1);
+      color: white;
+    }
+
+    /* Utility */
+    .text-gradient {
+      background: linear-gradient(135deg, #FF5722, #FF8A65);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-ordenlista fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <i class="fas fa-receipt"></i>Orden<span style="color: var(--ol-dark);">Lista</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#caracteristicas">Características</a></li>
+        <li class="nav-item"><a class="nav-link" href="#porque">¿Por qué OrdenLista?</a></li>
+      </ul>
+      <a href="https://wa.me/528115968095?text=Hola,%20quiero%20información%20de%20OrdenLista" class="btn btn-ordenlista" target="_blank">
+        <i class="fab fa-whatsapp me-1"></i> Contratar
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero-ordenlista">
+  <div class="container position-relative">
+    <div class="row align-items-center">
+      <div class="col-lg-7" data-aos="fade-up">
+        <div class="hero-badge">
+          <i class="fas fa-bolt"></i>
+          Sistema POS para México
+        </div>
+        <h1 class="hero-title">
+          El POS que <span class="highlight">simplifica</span><br>
+          tu restaurante o negocio
+        </h1>
+        <p class="hero-subtitle">
+          Dos productos, una solución. OrdenLista Restaurante para comandas y cocina, 
+          OrdenLista POS para ventas e inventario. Todo lo que tu negocio necesita en un solo ecosistema.
+        </p>
+        <div class="hero-cta">
+          <a href="#productos" class="btn-ordenlista-primary">
+            <i class="fas fa-arrow-down"></i> Ver productos
+          </a>
+          <a href="https://wa.me/528115968095?text=Hola,%20quiero%20una%20demo%20de%20OrdenLista" target="_blank" class="btn-ordenlista-secondary">
+            <i class="fab fa-whatsapp"></i> Solicitar demo
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-5 d-none d-lg-block" data-aos="fade-left" data-aos-delay="200">
+        <div style="position: relative; text-align: center;">
+          <div style="background: white; border-radius: 30px; padding: 3rem 2rem; box-shadow: 0 30px 60px rgba(0,0,0,0.1); border: 1px solid rgba(255,87,34,0.1);">
+            <i class="fas fa-receipt" style="font-size: 4rem; color: var(--ol-primary); opacity: 0.8;"></i>
+            <div style="font-size: 2rem; font-weight: 800; color: var(--ol-dark); margin: 1rem 0 0.3rem;">Orden<span style="color: var(--ol-primary);">Lista</span></div>
+            <div style="font-size: 0.9rem; color: var(--ol-gray);">POS • Restaurante • Inventario</div>
+            <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+              <span style="background: rgba(255,87,34,0.08); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: var(--ol-primary);">
+                <i class="fas fa-utensils me-1"></i>Comandas
+              </span>
+              <span style="background: rgba(0,184,148,0.08); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: var(--ol-accent);">
+                <i class="fas fa-print me-1"></i>Cocina
+              </span>
+              <span style="background: rgba(255,87,34,0.08); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: var(--ol-primary);">
+                <i class="fas fa-cash-register me-1"></i>POS
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<section class="products-section" id="productos">
+  <div class="container">
+    <div class="text-center" data-aos="fade-up">
+      <div class="section-label">
+        <i class="fas fa-cubes"></i> NUESTROS PRODUCTOS
+      </div>
+      <h2 class="section-title">Dos sistemas, un solo objetivo:<br>hacer crecer tu negocio</h2>
+      <p class="section-subtitle">
+        Elige el producto que necesitas o combínalos para tener el control total de tu operación.
+      </p>
+    </div>
+
+    <div class="row g-4 mt-2">
+      <!-- Producto 1: Restaurante -->
+      <div class="col-lg-6" data-aos="fade-up">
+        <div class="product-card restaurant-card">
+          <div class="product-badge">MÁS POPULAR</div>
+          <div class="product-icon">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <h3>OrdenLista <span style="color: var(--ol-primary);">Restaurante</span></h3>
+          <p class="product-desc">
+            Sistema completo de comandas digitales para restaurantes, cafeterías, bares y cocinas. 
+            Toma pedidos desde tablets, envía a cocina automáticamente y gestiona la operación en tiempo real.
+          </p>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> Captura de comandas desde tablets o smartphones</li>
+            <li><i class="fas fa-check-circle"></i> Pantalla de cocina con estados (pendiente → preparación → listo)</li>
+            <li><i class="fas fa-check-circle"></i> Impresión automática de comandas en cocina</li>
+            <li><i class="fas fa-check-circle"></i> Roles de usuario: mesero, cocina, caja, administrador</li>
+            <li><i class="fas fa-check-circle"></i> Gestión de mesas con mapa visual</li>
+            <li><i class="fas fa-check-circle"></i> Cuentas divididas y tickets de cobro</li>
+          </ul>
+          <a href="https://restaurante.ordenlista.com" target="_blank" class="btn-product">
+            Ir al sistema <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Producto 2: POS -->
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
+        <div class="product-card pos-card">
+          <div class="product-badge">NUEVO</div>
+          <div class="product-icon">
+            <i class="fas fa-cash-register"></i>
+          </div>
+          <h3>OrdenLista <span style="color: var(--ol-accent);">POS</span></h3>
+          <p class="product-desc">
+            Punto de venta moderno para tiendas, abarrotes, farmacias y negocios en general. 
+            Controla ventas, inventario, clientes y genera reportes desde una interfaz sencilla.
+          </p>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> Registro de ventas con múltiples formas de pago</li>
+            <li><i class="fas fa-check-circle"></i> Control de inventario en tiempo real</li>
+            <li><i class="fas fa-check-circle"></i> Gestión de clientes y cuentas por cobrar</li>
+            <li><i class="fas fa-check-circle"></i> Reportes de ventas diarios, semanales y mensuales</li>
+            <li><i class="fas fa-check-circle"></i> Catálogo de productos con códigos de barras</li>
+            <li><i class="fas fa-check-circle"></i> Ventas desde mostrador o modal rápido</li>
+          </ul>
+          <a href="https://wa.me/528115968095?text=Hola,%20quiero%20información%20de%20OrdenLista%20POS" target="_blank" class="btn-product">
+            Solicitar acceso <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features-section" id="caracteristicas">
+  <div class="container">
+    <div class="text-center" data-aos="fade-up">
+      <div class="section-label">
+        <i class="fas fa-star"></i> CARACTERÍSTICAS
+      </div>
+      <h2 class="section-title">Todo lo que necesitas para operar</h2>
+      <p class="section-subtitle">
+        Funcionalidades diseñadas para que tu negocio funcione sin fricciones, desde la comanda hasta el reporte final.
+      </p>
+    </div>
+
+    <div class="row g-4 mt-2">
+      <div class="col-md-4 col-sm-6" data-aos="fade-up">
+        <div class="feature-item">
+          <div class="fi-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h4>Multiplataforma</h4>
+          <p>Funciona en cualquier dispositivo: tablets, smartphones, computadoras. Sin instalaciones complicadas.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="50">
+        <div class="feature-item">
+          <div class="fi-icon"><i class="fas fa-print"></i></div>
+          <h4>Impresión inteligente</h4>
+          <p>Imprime comandas, tickets y reportes de forma automática en impresoras térmicas.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-item">
+          <div class="fi-icon"><i class="fas fa-cloud"></i></div>
+          <h4>En la nube</h4>
+          <p>Accede desde cualquier lugar. Tus datos siempre seguros y respaldados automáticamente.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="150">
+        <div class="feature-item">
+          <div class="fi-icon"><i class="fas fa-users-cog"></i></div>
+          <h4>Roles y permisos</h4>
+          <p>Define quién puede hacer qué: meseros, cocina, caja, administradores. Control total.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-item">
+          <div class="fi-icon"><i class="fas fa-chart-line"></i></div>
+          <h4>Reportes en tiempo real</h4>
+          <p>Visualiza ventas, platillos más pedidos, horas pico y más con dashboards intuitivos.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="250">
+        <div class="feature-item">
+          <div class="fi-icon"><i class="fab fa-whatsapp"></i></div>
+          <h4>Soporte por WhatsApp</h4>
+          <p>Soporte técnico directo por WhatsApp. Resolvemos tus dudas en minutos, no en días.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why OrdenLista -->
+<section class="why-section" id="porque">
+  <div class="container">
+    <div class="text-center" data-aos="fade-up">
+      <div class="section-label">
+        <i class="fas fa-question-circle"></i> ¿POR QUÉ ORDENLISTA?
+      </div>
+      <h2 class="section-title">Hecho en México, <br>para negocios como el tuyo</h2>
+      <p class="section-subtitle">
+        No somos un software genérico. OrdenLista está diseñado pensando en la operación real de los negocios mexicanos.
+      </p>
+    </div>
+
+    <div class="row g-4 mt-2">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="why-card">
+          <div class="wc-icon"><i class="fas fa-bolt"></i></div>
+          <h5>Rápido de implementar</h5>
+          <p>De la contratación a la operación en días, no en meses. Capacitación incluida.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="why-card">
+          <div class="wc-icon"><i class="fas fa-hand-holding-usd"></i></div>
+          <h5>Precio justo</h5>
+          <p>Sin costos ocultos ni contratos anuales forzados. Pagas solo lo que necesitas.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="why-card">
+          <div class="wc-icon"><i class="fas fa-sync-alt"></i></div>
+          <h5>Actualizaciones constantes</h5>
+          <p>Mejoramos el sistema continuamente con nuevas funcionalidades basadas en tus comentarios.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="50">
+        <div class="why-card">
+          <div class="wc-icon"><i class="fas fa-headset"></i></div>
+          <h5>Soporte local</h5>
+          <p>Equipo en México que habla español y entiende las necesidades de tu negocio.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+        <div class="why-card">
+          <div class="wc-icon"><i class="fas fa-shield-alt"></i></div>
+          <h5>Seguro y confiable</h5>
+          <p>Tus datos protegidos con respaldos automáticos y servidores de alta disponibilidad.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
+        <div class="why-card">
+          <div class="wc-icon"><i class="fas fa-expand-arrows-alt"></i></div>
+          <h5>Escalable</h5>
+          <p>Crece sin límites. Un restaurante pequeño o una cadena de 10 sucursales — funciona igual.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container position-relative">
+    <h2 data-aos="fade-up">¿Listo para digitalizar tu negocio?</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      Solicita una demostración personalizada sin costo y descubre cómo OrdenLista 
+      puede transformar tu operación.
+    </p>
+    <a href="https://wa.me/528115968095?text=Hola,%20quiero%20una%20demo%20de%20OrdenLista" target="_blank" class="btn-cta" data-aos="fade-up" data-aos-delay="200">
+      <i class="fab fa-whatsapp fa-lg"></i> Solicitar demo gratuita
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer-ordenlista">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand">Orden<span>Lista</span></div>
+        <p style="margin-top: 1rem; font-size: 0.9rem; line-height: 1.7;">
+          Soluciones POS para restaurantes y negocios en México. 
+          Desarrollado por <a href="https://goabcti.com" target="_blank">ABCTI</a>.
+        </p>
+      </div>
+      <div class="col-lg-2 col-md-4 col-6">
+        <h5>Productos</h5>
+        <ul class="list-unstyled" style="font-size: 0.9rem;">
+          <li class="mb-2"><a href="#productos">Restaurante</a></li>
+          <li class="mb-2"><a href="#productos">POS General</a></li>
+          <li class="mb-2"><a href="https://restaurante.ordenlista.com" target="_blank">Acceder al sistema</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-4 col-6">
+        <h5>Empresa</h5>
+        <ul class="list-unstyled" style="font-size: 0.9rem;">
+          <li class="mb-2"><a href="https://goabcti.com" target="_blank">ABCTI</a></li>
+          <li class="mb-2"><a href="https://goabcti.com/sascp.html" target="_blank">SASCP</a></li>
+          <li class="mb-2"><a href="https://goabcti.com/blog/" target="_blank">Blog</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <h5>Contacto</h5>
+        <ul class="list-unstyled" style="font-size: 0.9rem;">
+          <li class="mb-2">
+            <i class="fab fa-whatsapp me-2" style="color: #25D366;"></i>
+            <a href="https://wa.me/528115968095" target="_blank">+52 81 1596 8095</a>
+          </li>
+          <li class="mb-2">
+            <i class="far fa-envelope me-2"></i>
+            <a href="mailto:soporte@ordenlista.com">soporte@ordenlista.com</a>
+          </li>
+          <li class="mb-2">
+            <i class="fas fa-map-marker-alt me-2" style="color: var(--ol-primary);"></i>
+            Ciénega de Flores, Nuevo León
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+          &copy; 2026 OrdenLista. Todos los derechos reservados.
+        </div>
+        <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+          <a href="https://goabcti.com" target="_blank" style="font-size: 0.8rem;">
+            <i class="fas fa-code"></i> by ABCTI
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/528115968095?text=Hola,%20quiero%20información%20de%20OrdenLista" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 600,
+    once: true,
+    offset: 50
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Navbar background on scroll
+  window.addEventListener('scroll', function() {
+    const nav = document.querySelector('.navbar-ordenlista');
+    if (window.scrollY > 50) {
+      nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+    } else {
+      nav.style.boxShadow = '0 1px 10px rgba(0,0,0,0.05)';
+    }
+  });
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EX045FR80Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EX045FR80Y');
+</script>
+</body>
+</html>
