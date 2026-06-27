@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔄 Multi-sucursal con OrdenLista: administra todos tus restaurantes desde un solo sistema | OrdenLista</title>
+  <meta name="description" content="Descubre cómo administrar múltiples sucursales de restaurantes con OrdenLista Multi-sucursal. Dashboard centralizado, menús por local e inventario sincronizado.">
+  <meta name="keywords" content="multi-sucursal, restaurantes, cadena de restaurantes, OrdenLista, POS multi-sucursal, administración de locales">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ordenlista.com/blog/multi-sucursal-con-ordenlista-administra-todos-tus-restaurantes-desde-un-solo-sistema.html">
+  <meta property="og:title" content="🔄 Multi-sucursal con OrdenLista: administra todos tus restaurantes desde un solo sistema">
+  <meta property="og:description" content="Descubre cómo administrar múltiples sucursales de restaurantes con OrdenLista Multi-sucursal. Dashboard centralizado, menús por local e inventario sincronizado.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ordenlista.com/blog/multi-sucursal-con-ordenlista-administra-todos-tus-restaurantes-desde-un-solo-sistema.html">
+  <meta property="og:site_name" content="OrdenLista">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="🔄 Multi-sucursal con OrdenLista: administra todos tus restaurantes desde un solo sistema">
+  <meta name="twitter:description" content="Descubre cómo administrar múltiples sucursales de restaurantes con OrdenLista Multi-sucursal. Dashboard centralizado, menús por local e inventario sincronizado.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root{--ol-primary:#FF5722;--ol-primary-dark:#E64A19;--ol-accent:#00B894;--ol-dark:#1a1a2e;--ol-gray:#6c757d}
+    body{font-family:'Inter','Segoe UI',system-ui,sans-serif;color:var(--ol-dark);background:#fafafa}
+    .navbar-ordenlista{background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.05);padding:0.75rem 0;box-shadow:0 1px 10px rgba(0,0,0,0.05)}
+    .navbar-ordenlista .navbar-brand{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.5rem;color:var(--ol-primary);letter-spacing:-0.5px}
+    .navbar-ordenlista .navbar-brand i{margin-right:8px}
+    .navbar-ordenlista .nav-link{font-weight:500;color:var(--ol-dark)!important;padding:0.5rem 1rem!important;border-radius:8px;transition:all 0.2s}
+    .navbar-ordenlista .nav-link:hover{color:var(--ol-primary)!important;background:rgba(255,87,34,0.06)}
+    .navbar-ordenlista .btn-ordenlista{background:linear-gradient(135deg,#FF5722,#FF8A65);color:white!important;border:none;padding:0.5rem 1.5rem;border-radius:25px;font-weight:600;font-size:0.9rem;transition:all 0.3s}
+    .navbar-ordenlista .btn-ordenlista:hover{transform:translateY(-2px);box-shadow:0 5px 20px rgba(255,87,34,0.3)}
+    .blog-header{background:linear-gradient(135deg,#1a1a2e,#2D3436);color:white;padding:120px 0 60px;text-align:center}
+    .blog-header h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:2.2rem;font-weight:800;margin-bottom:0.8rem}
+    .blog-header p{color:rgba(255,255,255,0.65);font-size:1rem;max-width:600px;margin:0 auto}
+    .article-content{max-width:780px;margin:2rem auto;padding:0 1rem}
+    .article-body{background:white;border-radius:16px;padding:2.5rem;box-shadow:0 2px 10px rgba(0,0,0,0.04);border:1px solid #f0f0f0}
+    .article-body h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--ol-dark);margin-top:2rem;margin-bottom:1rem}
+    .article-body h3{font-size:1.15rem;font-weight:600;margin-top:1.5rem;margin-bottom:0.8rem}
+    .article-body p{margin-bottom:1rem;color:#475569;line-height:1.8}
+    .article-body ul,.article-body ol{margin-bottom:1rem;padding-left:1.5rem;color:#475569}
+    .article-body li{margin-bottom:0.5rem;line-height:1.7}
+    .article-body strong{color:var(--ol-dark)}
+    .meta{font-size:0.85rem;color:var(--ol-gray);margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid #e2e8f0}
+    .cta-box{background:linear-gradient(135deg,#1a1a2e,#2D3436);color:white;border-radius:14px;padding:2rem;margin:2rem 0;text-align:center}
+    .cta-box h3{color:white!important;font-size:1.3rem;margin-top:0!important}
+    .cta-box p{color:rgba(255,255,255,0.8)}
+    .cta-box a{color:white;background:linear-gradient(135deg,#FF5722,#FF8A65);padding:12px 28px;border-radius:25px;text-decoration:none;font-weight:600;display:inline-block;margin-top:1rem;transition:all 0.3s}
+    .cta-box a:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,87,34,0.3)}
+    .tags{display:flex;flex-wrap:wrap;gap:.3rem;margin:1.5rem 0}
+    .tag{background:#f1f5f9;color:#475569;padding:2px 10px;border-radius:20px;font-size:.72rem}
+    .footer-section{text-align:center;padding:2rem 1rem;color:var(--ol-gray);font-size:0.85rem}
+    .blog-nav{max-width:780px;margin:1rem auto;padding:0 1rem;display:flex;justify-content:space-between}
+    @media(max-width:768px){.blog-header h1{font-size:1.6rem}.article-body{padding:1.5rem}}
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-ordenlista fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/"><i class="fas fa-receipt"></i>Orden<span style="color: var(--ol-dark);">Lista</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#productos">Productos</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/blog/">Blog</a></li>
+      </ul>
+      <a href="https://wa.me/528115968095?text=Hola,%20quiero%20información%20de%20OrdenLista" class="btn btn-ordenlista" target="_blank"><i class="fab fa-whatsapp me-2"></i> Contratar</a>
+    </div>
+  </div>
+</nav>
+
+<section class="blog-header">
+  <div class="container">
+    <a href="/blog/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 1rem;">
+      <i class="fas fa-arrow-left me-1"></i> Volver al blog
+    </a>
+    <h1>🔄 Multi-sucursal con OrdenLista: administra todos tus restaurantes desde un solo sistema</h1>
+    <p>Descubre cómo administrar múltiples sucursales de restaurantes con OrdenLista Multi-sucursal. Dashboard centralizado, menús por local e inventario sincronizado.</p>
+  </div>
+</section>
+
+<section class="article-content">
+  <article class="article-body">
+    <div class="meta">
+      <i class="far fa-calendar-alt me-1"></i> 26 de junio de 2026
+    </div>
+<p>Si tienes más de un restaurante, negocio de comida o cafetería, probablemente conoces el dolor de administrar cada local por separado — menús que nunca están sincronizados, inventarios duplicados, reportes que no cuadran, y la sensación de que en lugar de tener un negocio con sucursales, tienes varios negocios independientes que apenas controlas.</p>
+
+<p>Con OrdenLista Multi-sucursal, eso cambia. Un solo sistema, todas tus sucursales, todo bajo control.</p>
+
+<h2>¿Qué es el modo multi-sucursal de OrdenLista?</h2>
+<p>Es una funcionalidad que te permite administrar todos tus locales desde un mismo panel de control. Cada sucursal puede operar de forma independiente (su propio menú, sus propios precios, su propio inventario), pero tú, como dueño, ves todo en un solo lugar.</p>
+
+<div class="feature-card">
+<strong>🎯 Lo que logras:</strong><br>
+Ver las ventas en tiempo real de todas tus sucursales en una sola pantalla. Sin tener que llamar a cada local para saber cómo les fue.
+</div>
+
+<h2>Funcionalidades clave</h2>
+
+<h3>📊 Dashboard centralizado</h3>
+<p>Desde cualquier dispositivo con internet ves el resumen de todas tus sucursales:</p>
+<ul>
+  <li>Ventas del día por local</li>
+  <li>Productos más vendidos en cada sucursal</li>
+  <li>Comparativa de rendimiento entre locales</li>
+  <li>Alertas de inventario crítico en tiempo real</li>
+</ul>
+
+<h3>📋 Menú unificado o por sucursal</h3>
+<p>Decide tú cómo manejarlo:</p>
+<ul>
+  <li><strong>Menú único:</strong> Todos los locales usan el mismo catálogo de productos y precios. Ideal para franquicias.</li>
+  <li><strong>Menú por sucursal:</strong> Cada local tiene su propio menú y precios. Perfecto si tienes conceptos diferentes (ej: cafetería + restaurante formal).</li>
+</ul>
+
+<h3>🔄 Transferencia de inventario</h3>
+<p>¿Una sucursal tiene exceso de insumos y otra necesita? OrdenLista te permite transferir inventario entre locales con unos cuantos clics, registrando todo automáticamente para tu contabilidad.</p>
+
+<h3>👥 Personal independiente por sucursal</h3>
+<p>Cada local tiene su propio equipo con accesos personalizados. Los meseros de una sucursal no ven datos de otra, pero tú, como administrador general, lo ves todo.</p>
+
+<h3>📈 Reportes consolidados</h3>
+<p>Olvídate de estar juntando hojas de cálculo de cada local. OrdenLista genera reportes consolidados automáticos:</p>
+<ul>
+  <li>Ventas por sucursal vs. meta</li>
+  <li>Productividad por turno y local</li>
+  <li>Costos de insumos por sucursal</li>
+  <li>Margen de ganancia por producto a nivel cadena</li>
+</ul>
+
+<div class="highlight-card">
+<strong>💡 Ejemplo real:</strong><br>
+Imagina que tienes 3 sucursales. Con OrdenLista Multi-sucursal:
+<br><br>
+🔹 10 AM: Abres tu celular y ves que la Sucursal 1 ya hizo $2,500 en desayunos.<br>
+🔹 2 PM: Te llega una alerta que a la Sucursal 3 le falta tortilla. Autorizas la compra desde el panel.<br>
+🔹 8 PM: Revisas el reporte del día — ventas totales de $18,700 entre las 3 sucursales. Todo desde una app.<br>
+</div>
+
+<h2>¿Cómo migrar a multi-sucursal?</h2>
+<p>Si ya usas OrdenLista en un local, agregar sucursales es sencillo:</p>
+
+<div class="step-card">
+<strong>1. Cuéntanos cuántas sucursales tienes</strong><br>
+En una llamada rápida definimos la estructura de tu negocio.
+</div>
+
+<div class="step-card">
+<strong>2. Configuramos menús y accesos</strong><br>
+Cada sucursal queda lista para operar con su propio equipo y catálogo.
+</div>
+
+<div class="step-card">
+<strong>3. Empezamos con una sucursal piloto</strong><br>
+Probamos con un local, afinamos detalles, y luego escalamos al resto.
+</div>
+
+<div class="step-card">
+<strong>4. Todo en vivo</strong><br>
+En menos de una semana tienes todas tus sucursales operando en OrdenLista.
+</div>
+
+<h2>¿Para quién es?</h2>
+<ul>
+  <li>🥘 Dueños de 2 o más restaurantes</li>
+  <li>☕ Cadenas de cafeterías</li>
+  <li>🍕 Negocios de comida rápida con múltiples ubicaciones</li>
+  <li>🏪 Franquicias de alimentos</li>
+  <li>🍦 Heladerías o neverías con sucursales</li>
+</ul>
+
+<h2>¿Listo para unificar tu negocio?</h2>
+<p>No importa si tienes 2 sucursales o 10, OrdenLista Multi-sucursal crece contigo. Y lo mejor: no necesitas cambiar tu forma de trabajar, solo la simplificas.</p>
+
+<div class="cta-section">
+  <strong>¿Tienes más de un local?</strong><br>
+  <p>Descubre lo fácil que es administrarlos todos desde un solo sistema.</p>
+  <a href="https://wa.me/528115968095?text=Hola%2C%20quiero%20información%20de%20OrdenLista%20Multi-sucursal"><i class="fab fa-whatsapp me-2"></i> Contáctanos por WhatsApp →</a>
+</div>
+
+  </article>
+</section>
+
+<div class="tags" style="max-width:780px;margin:0 auto;padding:0 1rem;">
+<span class="tag">Multi-sucursal</span><span class="tag">Restaurantes</span><span class="tag">OrdenLista</span><span class="tag">POS</span><span class="tag">Franquicias</span>
+</div>
+
+<div class="blog-nav">
+  <a href="/blog/" style="color:var(--ol-primary);text-decoration:none;font-weight:500">← Volver al blog</a>
+</div>
+
+<div class="footer-section">
+  &copy; 2026 OrdenLista — <a href="https://ordenlista.com" style="color: var(--ol-gray);">ordenlista.com</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
