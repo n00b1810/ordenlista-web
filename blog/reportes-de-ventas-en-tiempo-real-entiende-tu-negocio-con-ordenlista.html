@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reportes de ventas en tiempo real: entiende tu negocio con OrdenLista | OrdenLista</title>
+  <meta name="description" content="Deja de hacer cuentas en libretas y Excel. OrdenLista te da reportes de ventas en tiempo real: producto más vendido, horas pico, corte de caja automático.">
+  <meta name="keywords" content="reportes de ventas, sistema pos, punto de venta, control restaurante, reportes tiempo real, ordenlista">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ordenlista.com/blog/reportes-de-ventas-en-tiempo-real-entiende-tu-negocio-con-ordenlista.html">
+  <meta property="og:title" content="Reportes de ventas en tiempo real: entiende tu negocio con OrdenLista">
+  <meta property="og:description" content="Deja de hacer cuentas en libretas y Excel. OrdenLista te da reportes de ventas en tiempo real: producto más vendido, horas pico, corte de caja automático.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ordenlista.com/blog/reportes-de-ventas-en-tiempo-real-entiende-tu-negocio-con-ordenlista.html">
+  <meta property="og:site_name" content="OrdenLista">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Reportes de ventas en tiempo real: entiende tu negocio con OrdenLista">
+  <meta name="twitter:description" content="Deja de hacer cuentas en libretas y Excel. OrdenLista te da reportes de ventas en tiempo real: producto más vendido, horas pico, corte de caja automático.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root{--ol-primary:#FF5722;--ol-primary-dark:#E64A19;--ol-accent:#00B894;--ol-dark:#1a1a2e;--ol-gray:#6c757d}
+    body{font-family:'Inter','Segoe UI',system-ui,sans-serif;color:var(--ol-dark);background:#fafafa}
+    .navbar-ordenlista{background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.05);padding:0.75rem 0;box-shadow:0 1px 10px rgba(0,0,0,0.05)}
+    .navbar-ordenlista .navbar-brand{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.5rem;color:var(--ol-primary);letter-spacing:-0.5px}
+    .navbar-ordenlista .navbar-brand i{margin-right:8px}
+    .navbar-ordenlista .nav-link{font-weight:500;color:var(--ol-dark)!important;padding:0.5rem 1rem!important;border-radius:8px;transition:all 0.2s}
+    .navbar-ordenlista .nav-link:hover{color:var(--ol-primary)!important;background:rgba(255,87,34,0.06)}
+    .navbar-ordenlista .btn-ordenlista{background:linear-gradient(135deg,#FF5722,#FF8A65);color:white!important;border:none;padding:0.5rem 1.5rem;border-radius:25px;font-weight:600;font-size:0.9rem;transition:all 0.3s}
+    .navbar-ordenlista .btn-ordenlista:hover{transform:translateY(-2px);box-shadow:0 5px 20px rgba(255,87,34,0.3)}
+    .blog-header{background:linear-gradient(135deg,#1a1a2e,#2D3436);color:white;padding:120px 0 60px;text-align:center}
+    .blog-header h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:2.2rem;font-weight:800;margin-bottom:0.8rem}
+    .blog-header p{color:rgba(255,255,255,0.65);font-size:1rem;max-width:600px;margin:0 auto}
+    .article-content{max-width:780px;margin:2rem auto;padding:0 1rem}
+    .article-body{background:white;border-radius:16px;padding:2.5rem;box-shadow:0 2px 10px rgba(0,0,0,0.04);border:1px solid #f0f0f0}
+    .article-body h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--ol-dark);margin-top:2rem;margin-bottom:1rem}
+    .article-body h3{font-size:1.15rem;font-weight:600;margin-top:1.5rem;margin-bottom:0.8rem}
+    .article-body p{margin-bottom:1rem;color:#475569;line-height:1.8}
+    .article-body ul,.article-body ol{margin-bottom:1rem;padding-left:1.5rem;color:#475569}
+    .article-body li{margin-bottom:0.5rem;line-height:1.7}
+    .article-body strong{color:var(--ol-dark)}
+    .meta{font-size:0.85rem;color:var(--ol-gray);margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid #e2e8f0}
+    .cta-box{background:linear-gradient(135deg,#1a1a2e,#2D3436);color:white;border-radius:14px;padding:2rem;margin:2rem 0;text-align:center}
+    .cta-box h3{color:white!important;font-size:1.3rem;margin-top:0!important}
+    .cta-box p{color:rgba(255,255,255,0.8)}
+    .cta-box a{color:white;background:linear-gradient(135deg,#FF5722,#FF8A65);padding:12px 28px;border-radius:25px;text-decoration:none;font-weight:600;display:inline-block;margin-top:1rem;transition:all 0.3s}
+    .cta-box a:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,87,34,0.3)}
+    .tags{display:flex;flex-wrap:wrap;gap:.3rem;margin:1.5rem 0}
+    .tag{background:#f1f5f9;color:#475569;padding:2px 10px;border-radius:20px;font-size:.72rem}
+    .footer-section{text-align:center;padding:2rem 1rem;color:var(--ol-gray);font-size:0.85rem}
+    .blog-nav{max-width:780px;margin:1rem auto;padding:0 1rem;display:flex;justify-content:space-between}
+    @media(max-width:768px){.blog-header h1{font-size:1.6rem}.article-body{padding:1.5rem}}
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-ordenlista fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/"><i class="fas fa-receipt"></i>Orden<span style="color: var(--ol-dark);">Lista</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#productos">Productos</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/blog/">Blog</a></li>
+      </ul>
+      <a href="https://wa.me/528115968095?text=Hola,%20quiero%20información%20de%20OrdenLista" class="btn btn-ordenlista" target="_blank"><i class="fab fa-whatsapp me-2"></i> Contratar</a>
+    </div>
+  </div>
+</nav>
+
+<section class="blog-header">
+  <div class="container">
+    <a href="/blog/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 1rem;">
+      <i class="fas fa-arrow-left me-1"></i> Volver al blog
+    </a>
+    <h1>Reportes de ventas en tiempo real: entiende tu negocio con OrdenLista</h1>
+    <p>Deja de hacer cuentas en libretas y Excel. OrdenLista te da reportes de ventas en tiempo real: producto más vendido, horas pico, corte de caja automático.</p>
+  </div>
+</section>
+
+<section class="article-content">
+  <article class="article-body">
+    <div class="meta">
+      <i class="far fa-calendar-alt me-1"></i> 8 de julio de 2026
+    </div>
+<p>Terminó el día. Cierras tu restaurante o negocio y te preguntas: <em>"¿Cuánto vendí hoy? ¿Qué producto se fue más? ¿Gané o perdí?"</em></p>
+
+<p>Si tu respuesta es "lo reviso en la libreta" o "luego lo veo en Excel", este artículo es para ti.</p>
+
+<div class="feature-card">
+  <strong>📊 Dato clave:</strong> Los negocios que toman decisiones basadas en datos crecen hasta 3 veces más rápido que los que operan por intuición. Pero tener datos no sirve de nada si no los ves en tiempo real.
+</div>
+
+<h2>El problema: datos que llegan tarde</h2>
+
+<p>El método tradicional es: la cajera anota en papel, al final del día sumas en calculadora, y el fin de semana pasas todo a Excel. Para cuando tienes los números, ya es tarde para corregir el rumbo.</p>
+
+<p>Con <strong>OrdenLista</strong>, los reportes se generan solos, en tiempo real, y los tienes en tu celular antes de que termine el turno.</p>
+
+<h2>¿Qué reportes necesitas realmente?</h2>
+
+<h3>📈 Ventas del día vs ayer vs misma fecha del mes pasado</h3>
+<p>Saber si hoy fue mejor o peor que ayer no es suficiente. OrdenLista te compara automáticamente con el mismo día de la semana anterior y del mes pasado, para que sepas si vas al alza o a la baja.</p>
+
+<h3>🥇 Producto más vendido (y el que menos)</h3>
+<p>¿Sabes qué platillo de tu menú da más ganancia? ¿Cuál solo lo pide una persona a la semana y lo tienes en el menú ocupando espacio? Identifica tus estrellas y tus lastres al instante.</p>
+
+<h3>⏰ Horas pico y horas muertas</h3>
+<p>¿A qué hora llega más gente? ¿Cuándo puedes mandar a tu personal a descansar? Con los reportes por hora, optimizas turnos y evitas tener gente sentada sin hacer nada mientras otros se estresan.</p>
+
+<div class="highlight-card">
+  <strong>✅ Con OrdenLista ves todo en un solo panel:</strong>
+  <ul>
+    <li>📊 Ventas por día, semana o mes</li>
+    <li>🥧 Productos más y menos vendidos</li>
+    <li>⏰ Horario de mayor demanda</li>
+    <li>💵 Corte de caja automático</li>
+    <li>📱 Acceso desde tu celular</li>
+  </ul>
+</div>
+
+<h2>El corte de caja que se hace solo</h2>
+
+<p>El fin de semana, en lugar de sentarte a sumar tickets y cuadrar cuentas, abres OrdenLista y ves el corte de caja listo: cuánto se vendió en efectivo, cuánto en tarjeta, cuánto en transferencia. <strong>Cero cálculos manuales.</strong></p>
+
+<p>Y si eres de los que cuadran hasta el último centavo, el sistema te da el desglose completo para que solo revises, no para que hagas cuentas.</p>
+
+<div class="step-card">
+  <strong>🔄 Cómo funciona:</strong> Cada pedido que se registra en OrdenLista actualiza los reportes al instante. No hay que hacer nada adicional: solo usar el sistema como siempre y los datos se generan solos.
+</div>
+
+<h2>¿Y los impuestos?</h2>
+
+<p>Llega la declaración y empieza el caos de buscar tickets, facturas y estados de cuenta. Con OrdenLista tienes el historial completo de ventas exportable. En minutos tienes lo que tu contador necesita.</p>
+
+<div class="cta-section">
+  <p style="font-size:1.1rem;margin-bottom:.5rem"><strong>🔥 Deja de adivinar. Empieza a medir.</strong></p>
+  <p style="font-size:.9rem;opacity:.9">Pide tu demo gratis y descubre lo que tus datos pueden decirte</p>
+  <a href="https://wa.me/528117620847" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:white;padding:.6rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600;margin-top:.5rem">💬 Quiero una demo</a>
+</div>
+
+  </article>
+</section>
+
+<div class="tags" style="max-width:780px;margin:0 auto;padding:0 1rem;">
+<span class="tag">Reportes</span><span class="tag">Ventas</span><span class="tag">POS</span><span class="tag">Restaurantes</span><span class="tag">Datos</span>
+</div>
+
+<div class="blog-nav">
+  <a href="/blog/" style="color:var(--ol-primary);text-decoration:none;font-weight:500">← Volver al blog</a>
+</div>
+
+<div class="footer-section">
+  &copy; 2026 OrdenLista — <a href="https://ordenlista.com" style="color: var(--ol-gray);">ordenlista.com</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
