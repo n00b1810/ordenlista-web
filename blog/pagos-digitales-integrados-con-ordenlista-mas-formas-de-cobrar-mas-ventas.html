@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💳 Pagos digitales integrados con OrdenLista — más formas de cobrar, más ventas | OrdenLista</title>
+  <meta name="description" content="Guía práctica para integrar pagos digitales (QR en mesa, terminal bancaria) con OrdenLista. Acepta tarjetas y transferencias sin complicaciones.">
+  <meta name="keywords" content="pagos digitales restaurante, qr para cobrar en mesa, terminal punto de venta integrada, pos con pagos, ordenlista pagos">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ordenlista.com/blog/pagos-digitales-integrados-con-ordenlista-mas-formas-de-cobrar-mas-ventas.html">
+  <meta property="og:title" content="💳 Pagos digitales integrados con OrdenLista — más formas de cobrar, más ventas">
+  <meta property="og:description" content="Guía práctica para integrar pagos digitales (QR en mesa, terminal bancaria) con OrdenLista. Acepta tarjetas y transferencias sin complicaciones.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ordenlista.com/blog/pagos-digitales-integrados-con-ordenlista-mas-formas-de-cobrar-mas-ventas.html">
+  <meta property="og:site_name" content="OrdenLista">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="💳 Pagos digitales integrados con OrdenLista — más formas de cobrar, más ventas">
+  <meta name="twitter:description" content="Guía práctica para integrar pagos digitales (QR en mesa, terminal bancaria) con OrdenLista. Acepta tarjetas y transferencias sin complicaciones.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root{--ol-primary:#FF5722;--ol-primary-dark:#E64A19;--ol-accent:#00B894;--ol-dark:#1a1a2e;--ol-gray:#6c757d}
+    body{font-family:'Inter','Segoe UI',system-ui,sans-serif;color:var(--ol-dark);background:#fafafa}
+    .navbar-ordenlista{background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.05);padding:0.75rem 0;box-shadow:0 1px 10px rgba(0,0,0,0.05)}
+    .navbar-ordenlista .navbar-brand{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.5rem;color:var(--ol-primary);letter-spacing:-0.5px}
+    .navbar-ordenlista .navbar-brand i{margin-right:8px}
+    .navbar-ordenlista .nav-link{font-weight:500;color:var(--ol-dark)!important;padding:0.5rem 1rem!important;border-radius:8px;transition:all 0.2s}
+    .navbar-ordenlista .nav-link:hover{color:var(--ol-primary)!important;background:rgba(255,87,34,0.06)}
+    .navbar-ordenlista .btn-ordenlista{background:linear-gradient(135deg,#FF5722,#FF8A65);color:white!important;border:none;padding:0.5rem 1.5rem;border-radius:25px;font-weight:600;font-size:0.9rem;transition:all 0.3s}
+    .navbar-ordenlista .btn-ordenlista:hover{transform:translateY(-2px);box-shadow:0 5px 20px rgba(255,87,34,0.3)}
+    .blog-header{background:linear-gradient(135deg,#1a1a2e,#2D3436);color:white;padding:120px 0 60px;text-align:center}
+    .blog-header h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:2.2rem;font-weight:800;margin-bottom:0.8rem}
+    .blog-header p{color:rgba(255,255,255,0.65);font-size:1rem;max-width:600px;margin:0 auto}
+    .article-content{max-width:780px;margin:2rem auto;padding:0 1rem}
+    .article-body{background:white;border-radius:16px;padding:2.5rem;box-shadow:0 2px 10px rgba(0,0,0,0.04);border:1px solid #f0f0f0}
+    .article-body h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--ol-dark);margin-top:2rem;margin-bottom:1rem}
+    .article-body h3{font-size:1.15rem;font-weight:600;margin-top:1.5rem;margin-bottom:0.8rem}
+    .article-body p{margin-bottom:1rem;color:#475569;line-height:1.8}
+    .article-body ul,.article-body ol{margin-bottom:1rem;padding-left:1.5rem;color:#475569}
+    .article-body li{margin-bottom:0.5rem;line-height:1.7}
+    .article-body strong{color:var(--ol-dark)}
+    .meta{font-size:0.85rem;color:var(--ol-gray);margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid #e2e8f0}
+    .cta-box{background:linear-gradient(135deg,#1a1a2e,#2D3436);color:white;border-radius:14px;padding:2rem;margin:2rem 0;text-align:center}
+    .cta-box h3{color:white!important;font-size:1.3rem;margin-top:0!important}
+    .cta-box p{color:rgba(255,255,255,0.8)}
+    .cta-box a{color:white;background:linear-gradient(135deg,#FF5722,#FF8A65);padding:12px 28px;border-radius:25px;text-decoration:none;font-weight:600;display:inline-block;margin-top:1rem;transition:all 0.3s}
+    .cta-box a:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,87,34,0.3)}
+    .tags{display:flex;flex-wrap:wrap;gap:.3rem;margin:1.5rem 0}
+    .tag{background:#f1f5f9;color:#475569;padding:2px 10px;border-radius:20px;font-size:.72rem}
+    .footer-section{text-align:center;padding:2rem 1rem;color:var(--ol-gray);font-size:0.85rem}
+    .blog-nav{max-width:780px;margin:1rem auto;padding:0 1rem;display:flex;justify-content:space-between}
+    @media(max-width:768px){.blog-header h1{font-size:1.6rem}.article-body{padding:1.5rem}}
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-ordenlista fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/"><i class="fas fa-receipt"></i>Orden<span style="color: var(--ol-dark);">Lista</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#productos">Productos</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/blog/">Blog</a></li>
+      </ul>
+      <a href="https://wa.me/528115968095?text=Hola,%20quiero%20información%20de%20OrdenLista" class="btn btn-ordenlista" target="_blank"><i class="fab fa-whatsapp me-2"></i> Contratar</a>
+    </div>
+  </div>
+</nav>
+
+<section class="blog-header">
+  <div class="container">
+    <a href="/blog/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 1rem;">
+      <i class="fas fa-arrow-left me-1"></i> Volver al blog
+    </a>
+    <h1>💳 Pagos digitales integrados con OrdenLista — más formas de cobrar, más ventas</h1>
+    <p>Guía práctica para integrar pagos digitales (QR en mesa, terminal bancaria) con OrdenLista. Acepta tarjetas y transferencias sin complicaciones.</p>
+  </div>
+</section>
+
+<section class="article-content">
+  <article class="article-body">
+    <div class="meta">
+      <i class="far fa-calendar-alt me-1"></i> 16 de julio de 2026
+    </div>
+<div class="article-body">
+
+<p>Si en tu restaurante, taquería o negocio de comida aún manejas pagos solo en efectivo —o peor, andas con la terminal bancaria de un lado a otro entre mesas—, este artículo te interesa.</p>
+
+<p>La integración de pagos digitales con tu sistema POS ya no es un lujo. Es lo que tus clientes esperan y lo que separa un negocio ágil de uno que pierde ventas por no ofrecer formas modernas de pago.</p>
+
+<h2>¿Por qué integrar pagos digitales con OrdenLista?</h2>
+
+<p>Cuando tu POS y tus pagos están integrados, pasas de tener dos o tres procesos separados a uno solo. El mesero toma la orden, el cliente paga desde su lugar, y el sistema registra todo automáticamente. Sin errores, sin dobles capturas, sin vueltas.</p>
+
+<div class="feature-card">
+  <strong>⏱️ Reducción de tiempo por mesa</strong>
+  <p>Un pago integrado reduce el tiempo de cierre de cuenta hasta en un 70%. El cliente paga cuando quiere y el sistema lo refleja al instante.</p>
+</div>
+
+<h2>Opciones de pago digital que puedes integrar</h2>
+
+<h3>1. Cobro con QR en mesa</h3>
+<p>Cada mesa tiene un código QR único que el cliente escanea con su celular. Puede ver el total, dividir la cuenta, agregar propina y pagar con tarjeta o transferencia. Sin necesidad de que el mesero lleve y traiga la terminal.</p>
+
+<div class="highlight-card">
+  <strong>✅ Beneficio real:</strong>
+  <ul>
+    <li>📱 El cliente paga desde su propio celular</li>
+    <li>🔒 Datos seguros, sin manipulación de tarjetas</li>
+    <li>💳 Acepta tarjetas de crédito, débito y transferencias</li>
+    <li>📊 El pago se refleja automáticamente en el POS</li>
+  </ul>
+</div>
+
+<h3>2. Terminal punto de venta (TPV) integrada</h3>
+<p>Si prefieres terminal física, OrdenLista se integra con terminales bancarias. Cuando el mesero selecciona "Cobrar" en el POS, la terminal ya tiene el monto precargado. Solo pasa la tarjeta y listo.</p>
+
+<div class="step-card">
+  <strong>⚡ Flujo con terminal integrada:</strong>
+  <ol>
+    <li>El mesero cierra la cuenta en OrdenLista</li>
+    <li>Selecciona "Cobrar con terminal"</li>
+    <li>La terminal muestra el monto automáticamente</li>
+    <li>Cliente paga con tarjeta o contacto</li>
+    <li>El POS registra el pago al instante</li>
+  </ol>
+</div>
+
+<h2>Más formas de cobrar, más ventas</h2>
+
+<p>Cada vez más personas evitan el efectivo. Ofrecer varias opciones de pago digital no es solo comodidad: es una estrategia de ventas. Un cliente que puede pagar como quiera, compra con más confianza y repite más seguido.</p>
+
+<div class="cta-box">
+  <h3>🚀 ¿Listo para digitalizar tus cobros?</h3>
+  <p>En OrdenLista integramos pagos digitales para que tu restaurante cobre más rápido y sin errores.</p>
+  <p style="margin-top:1rem">
+    <a href="https://wa.me/528115968095" style="display:inline-block;background:linear-gradient(135deg,#FF5722,#FF8A65);color:white;padding:0.8rem 2rem;border-radius:25px;text-decoration:none;font-weight:600;">
+      📲 Contáctanos por WhatsApp
+    </a>
+  </p>
+</div>
+
+<h2>Preguntas frecuentes sobre pagos digitales con OrdenLista</h2>
+
+<h3>¿Necesito contratar un servicio de pagos aparte?</h3>
+<p>No necesariamente. OrdenLista se integra con las principales pasarelas y bancos en México. Revisamos tu caso para recomendarte la mejor opción según tu volumen de ventas.</p>
+
+<h3>¿El cobro con QR funciona sin internet?</h3>
+<p>Requiere conexión a internet en el restaurante, pero el cliente paga desde su propio plan de datos. Es rápido y seguro.</p>
+
+<h3>¿Qué pasa si hay una devolución o cancelación?</h3>
+<p>El sistema maneja devoluciones directamente desde el POS. El reembolso se procesa automáticamente hacia la tarjeta del cliente.</p>
+
+<div class="highlight-card">
+  <strong>📊 En resumen:</strong>
+  <ul>
+    <li>✅ Pagos integrados = menos errores y más rapidez</li>
+    <li>✅ QR en mesa: el cliente paga desde su celular</li>
+    <li>✅ Terminal integrada: montos precargados, un solo toque</li>
+    <li>✅ Más opciones de pago = más ventas y clientes satisfechos</li>
+    <li>✅ Todo queda registrado automáticamente en tu POS</li>
+  </ul>
+</div>
+
+<p style="margin-top:2rem;font-size:0.9rem;color:#6c757d;">
+  📍 <strong>OrdenLista</strong> — El sistema POS inteligente para restaurantes en Nuevo León y todo México.
+</p>
+
+</div>
+  </article>
+</section>
+
+<div class="tags" style="max-width:780px;margin:0 auto;padding:0 1rem;">
+<span class="tag">Pagos Digitales</span><span class="tag">QR</span><span class="tag">Terminal Bancaria</span><span class="tag">POS</span><span class="tag">OrdenLista</span><span class="tag">Restaurantes</span>
+</div>
+
+<div class="blog-nav">
+  <a href="/blog/" style="color:var(--ol-primary);text-decoration:none;font-weight:500">← Volver al blog</a>
+</div>
+
+<div class="footer-section">
+  &copy; 2026 OrdenLista — <a href="https://ordenlista.com" style="color: var(--ol-gray);">ordenlista.com</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
